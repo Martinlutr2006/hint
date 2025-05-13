@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import '../App.css'
-
+import "../App.css";
 function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -27,11 +26,9 @@ function Register() {
   };
 
   return (
-    
-    <div className="register" >
+    <div className="register">
       <div className="header">
-
-      <h2>Register</h2>
+        <h2>Register</h2>
       </div>
       <form onSubmit={handleRegister}>
         <label>USERNAME</label>
