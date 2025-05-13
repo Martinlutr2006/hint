@@ -36,3 +36,48 @@
     transform: rotate(360deg);
   }
 }
+.header{
+  font-size: 2rem;
+  font-weight: bold;
+  margin-left: 10rem !important;
+}
+.register{
+  /* background-color: #282c34; */
+  width: 20rem;
+  height: 20rem;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.login{
+  /* background-color: #282c34; */
+  width: 20rem;
+  height: 20rem;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+form{
+  display: block;
+  margin: auto;
+  background-color: skyblue;
+  margin-top: 7rem;
+}
+input{
+  padding: 1rem;
+  border-color: black;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  
+}
+button{
+  padding: 1rem;
+  border-color: black;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  margin-left: 3rem;
+}
+
