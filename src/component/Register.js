@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
+
 function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("worker");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -14,6 +16,7 @@ function Register() {
       const res = await axios.post("http://localhost:4000/api/users/register", {
         username,
         password,
+        role,
       });
 
       if (res.status === 201 || res.status === 200) {
@@ -21,15 +24,13 @@ function Register() {
         navigate("/login");
       }
     } catch (err) {
-      setError("Username already exists. Please try again.");
+      setError("Username already exists or server error.");
     }
   };
 
   return (
     <div className="register">
-      <div className="header">
-        <h2>Register</h2>
-      </div>
+      <h2>Register</h2>
       <form onSubmit={handleRegister}>
         <label>USERNAME</label>
         <input
@@ -37,7 +38,7 @@ function Register() {
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          required8
+          required
         />
         <br />
         <label>PASSWORD</label>
@@ -48,6 +49,12 @@ function Register() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+        <br />
+        <label>ROLE</label>
+        <select value={role} onChange={(e) => setRole(e.target.value)} required>
+          <option value="worker">Worker</option>
+          <option value="employee">Employee</option>
+        </select>
         <br />
         <button type="submit">Register</button>
         {error && <p style={{ color: "red" }}>{error}</p>}

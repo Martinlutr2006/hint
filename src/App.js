@@ -4,9 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Register from './component/Register';
 import Login from './component/Login';
 import Dashboard from './component/Dashboard';
-import About from './component/About';
-import Posts from './component/Posts';
-import Home from './component/Home';
+import ProtectedRoute from './component/ProtectedRoute';
 
 function App() {
   return (
@@ -15,10 +13,16 @@ function App() {
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/dashboard/posts" element={<Posts />} />
-        <Route path="/dashboard/about" element={<About />} />
-        <Route path="/dashboard/home" element={<Home />} />
+        
+        {/* All nested dashboard routes go inside Dashboard */}
+        <Route
+          path="/dashboard/*"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </Router>
   );

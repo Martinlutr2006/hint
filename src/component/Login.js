@@ -12,12 +12,17 @@ function Login() {
     e.preventDefault();
     try {
       const res = await axios.post('http://localhost:4000/api/users/login', {
-        username: username,
-        password: password
+        username,
+        password
       });
 
       if (res.status === 200) {
-        localStorage.setItem('user', JSON.stringify(res.data.user));
+        const { token, user } = res.data;
+
+        // Save token and user in localStorage
+        localStorage.setItem('token', token); // used for route protection
+        localStorage.setItem('user', JSON.stringify(user));
+
         alert('Login successful!');
         navigate('/dashboard');
       }
@@ -32,20 +37,24 @@ function Login() {
       <form onSubmit={handleLogin}>
         <input
           type="text"
+          name="username"
+          id="username"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
-        />
-        <br />
+        /><br />
+
         <input
           type="password"
+          name="password"
+          id="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-        />
-        <br />
+        /><br />
+
         <button type="submit">Login</button>
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
