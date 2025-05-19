@@ -4,6 +4,7 @@ import Home from "./Home";
 import Posts from "./Posts";
 import About from "./About";
 import ContactForm from "./ContactForm";
+import Products from "./Products";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ function Dashboard() {
         <Link to="posts">Posts</Link>
         <Link to="about">About</Link>
         <Link to="contact">Contact</Link>
+        <Link to ="products">Product</Link>
         <button onClick={handleLogout}>Logout</button>
       </nav>
 
@@ -31,6 +33,7 @@ function Dashboard() {
         <Route path="posts" element={<Posts />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<ContactForm />} />
+        <Route path="products" element={<Products/>}/>
       </Routes>
     </div>
   );

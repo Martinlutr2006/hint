@@ -1,7 +1,12 @@
+/* App-wide styling */
 .App {
   text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  min-height: 100vh;
 }
 
+/* Logo animation */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -13,6 +18,7 @@
   }
 }
 
+/* Header Styling */
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -26,8 +32,10 @@
 
 .App-link {
   color: #61dafb;
+  text-decoration: none;
 }
 
+/* Logo Spin Animation */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,48 +44,69 @@
     transform: rotate(360deg);
   }
 }
-.header{
-  font-size: 2rem;
-  font-weight: bold;
-  margin-left: 10rem !important;
-}
-.register{
-  /* background-color: #282c34; */
-  width: 20rem;
-  height: 20rem;
-  margin: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-.login{
-  /* background-color: #282c34; */
-  width: 20rem;
-  height: 20rem;
-  margin: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-form{
-  display: block;
-  margin: auto;
 
-  margin-top: 7rem;
+/* Page title/header */
+.header {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 3rem auto;
+  text-align: center;
+  color: #333;
 }
-input{
-  padding: 1rem;
-  border-color: black;
+
+/* Reusable form container */
+.register,
+.login {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  margin: 3rem auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Form layout */
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Input field styling */
+input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
   border-radius: 0.5rem;
-  margin: 1rem;
-  
-}
-button{
-  padding: 1rem;
-  border-color: black;
-  border-radius: 20px;
-  background-color: black;
-  color: white;
-  margin-left: 3rem;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
 }
 
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Button styling */
+button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

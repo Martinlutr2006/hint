@@ -24,7 +24,7 @@ function Register() {
         navigate("/login");
       }
     } catch (err) {
-      setError("Username already exists or server error.");
+      alert("Username already exists or server error.");
     }
   };
 
@@ -62,5 +62,4 @@ function Register() {
     </div>
   );
 }
-
 export default Register;
